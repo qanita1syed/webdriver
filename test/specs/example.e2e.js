@@ -1,6 +1,7 @@
 const LoginPage = require('./../pageobjects/login.page')
 const SecurePage = require('./../pageobjects/secure.page');
 const internet = require('./../pageobjects/internet');
+const QTT = require('./../pageobjects/qtt.page')
 
 
 describe('My Login application', () => {
@@ -43,19 +44,8 @@ describe('My Login application', () => {
        // await expect(internet.buyTicketsPageHeading).toBeExisting();
     })
 
-    it('SELECT DESTINATION FROM', async () =>
-    {
-    let text = await $("//body/ace-root[@id='ace-root']/div[1]/main[1]/div[1]/ace-homepage[1]/div[1]/div[1]/div[1]/ace-qtt-toggle[1]/div[1]/div[2]/div[1]/ace-qtt[1]/form[1]/div[1]/ace-qtt-station-pickers[1]/div[1]/div[1]/div[1]/div[1]/ace-station-picker[1]/div[1]/div[1]/div[1]")
-    await browser.pause(3000)
-    await $("//body/ace-root[@id='ace-root']/div[1]/main[1]/div[1]/ace-homepage[1]/div[1]/div[1]/div[1]/ace-qtt-toggle[1]/div[1]/div[2]/div[1]/ace-qtt[1]/form[1]/div[1]/ace-qtt-station-pickers[1]/div[1]/div[1]/div[1]/div[1]/ace-station-picker[1]/div[1]/div[1]/div[1]").waitForExist({ timeout: 5000 })
-    await expect(text).toBeExisting()
-    await $("//body/ace-root[@id='ace-root']/div[1]/main[1]/div[1]/ace-homepage[1]/div[1]/div[1]/div[1]/ace-qtt-toggle[1]/div[1]/div[2]/div[1]/ace-qtt[1]/form[1]/div[1]/ace-qtt-station-pickers[1]/div[1]/div[1]/div[1]/div[1]/ace-station-picker[1]/div[1]/div[1]/div[1]").click();
-    await browser.pause(3000)
-
-    await browser.actions()
-    .keyDown(Key.SHIFT)
-    .sendKeys('a')
-    await browser.pause(3000)
+    it('SELECT DESTINATION FROM', async () => {
+await QTT.clickAndSelectFromStation();
     })
 
     /*it('SELECT pickFrom', async () =>
