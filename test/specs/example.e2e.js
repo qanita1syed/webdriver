@@ -44,9 +44,48 @@ describe('My Login application', () => {
        // await expect(internet.buyTicketsPageHeading).toBeExisting();
     })
 
-    it('SELECT DESTINATION FROM', async () => {
-await QTT.clickAndSelectFromStation();
+    it('SELECT Origin station', async () => {
+    await QTT.clickAndSelectFromStation();
     })
+
+    it('SELECT Destination station', async () => {
+        await QTT.clickAndSelecttToStation();
+        })
+    
+        it ('should click search and buy button', async()=>{
+            await QTT.clickSearchAndBuy();
+        })
+     it('Should g to mixing-deck page ', async()=>{    // mixing deck
+        
+        let text = await $(".booking-steps-label");
+        await expect(text).toBeExisting();
+
+     })
+      it ('Should go to mixing deck page', async()=>{   // mixing deck
+        await QTT.continue();
+      })
+      it ('Should go to DilveryAndExtrasPage', async()=>   //DeliveryExtras
+      {
+        let text = await $('.page-title');
+        await expect(text).toBeExisting();
+      })
+      it('should go to DilveryAndExtrasPage', async()=>      //DeliveryExtras
+      {
+        await QTT.continuebtn2();
+      })
+      it('should go to review and Pay Page', async()=>      //reviewPayPage
+      {
+        let text = await $('.page-title'); 
+        await expect(text).toBeExisting();
+      })
+      it('should go to pay now page', async()=>      // pay now page
+      {
+        await QTT.payNow();
+      })
+
+
+
+
 
     /*it('SELECT pickFrom', async () =>
     {
