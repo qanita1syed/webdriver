@@ -1,6 +1,7 @@
 
 
 class deiveryAndExtras {
+  
   get deiveryAndExtras()    // deliveryExtras
   {
     return $('.page-title')
@@ -20,16 +21,16 @@ return $ ('//*[@id="ace-root"]/div/main/div/ace-seats-and-extras/div/div/div/ace
 }
 
 
-  async seeMore()   // deliveryExtras
-  {
-    await this.seeMoreOption.click();
-    await browser.pause(3000)
-  }
-    async tvmMachine()   // deliveryExtras
-  {
-    await this.tvm.click();
-    await browser.pause(3000)
-  }
+  // async seeMore()   // deliveryExtras
+  // {
+  //   await this.seeMoreOption.click();
+  //   await browser.pause(3000)
+  // }
+  //   async tvmMachine()   // deliveryExtras
+  // {
+  //   await this.tvm.click();
+  //   await browser.pause(3000)
+  // }
   async continuebtn2()   // deliveryExtras
   {
     await this.contBtn.click();

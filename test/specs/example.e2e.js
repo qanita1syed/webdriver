@@ -1,12 +1,12 @@
-const LoginPage = require('./../pageobjects/login.page')
+const LoginPage = require('./../pageobjects/login.page');
 const SecurePage = require('./../pageobjects/secure.page');
 const internet = require('./../pageobjects/internet');
-const QTT = require('./../pageobjects/qtt.page')
-const mixingdeck = require('./../pageobjects/mixingdeck.page')
-const deiveryAndExtras = require('./../pageobjects/deliveryExtra.page')
-const reviewPayPage = require('./../pageobjects/reviewPay.page')
+const QTT = require('./../pageobjects/qtt.page');
+const mixingdeck = require('./../pageobjects/mixingdeck.page');
+const deiveryAndExtras = require('./../pageobjects/deliveryExtra.page');
+const reviewPayPage = require('./../pageobjects/reviewPay.page');
 const {email,password} = require('./../data/credentails');
-//const { default: $ } = require('webdriverio/build/commands/element/$');
+
 
 
 describe('My Login application', () => {
@@ -80,16 +80,15 @@ describe('My Login application', () => {
         let text = await $('.page-title');
         await expect(text).toBeExisting();
     })
-    it('Should go to See more option', async () =>   //DeliveryExtras
-    {
-        await deiveryAndExtras.seeMore();
-        
-    })
+    // it('Should go to See more option', async () =>   //DeliveryExtras
+    // {
+    //     await deiveryAndExtras.seeMore();
+    // })
 
-    it('should go to TVM radio button', async () =>     //TVM
-    {
-        await deiveryAndExtras.tvmMachine();
-    })
+    // it('should go to TVM radio button', async () =>     //TVM
+    // {
+    //     await deiveryAndExtras.tvmMachine();
+    // })
 
     it('should go to DilveryAndExtrasPage', async () =>      //DeliveryExtras
     {
