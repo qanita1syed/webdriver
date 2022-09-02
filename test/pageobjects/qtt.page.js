@@ -1,8 +1,3 @@
-const { default: $ } = require("webdriverio/build/commands/element/$");
-
-
-
-
 class QTT {
   get fromStation() {
     return $("//body/ace-root[@id='ace-root']/div[1]/main[1]/div[1]/ace-homepage[1]/div[1]/div[1]/div[1]/ace-qtt-toggle[1]/div[1]/div[2]/div[1]/ace-qtt[1]/form[1]/div[1]/ace-qtt-station-pickers[1]/div[1]/div[1]/div[1]/div[1]/ace-station-picker[1]/div[1]/div[1]/div[1]");
@@ -10,10 +5,6 @@ class QTT {
 
   get toStation() {
     return $("//body/ace-root[@id='ace-root']/div[1]/main[1]/div[1]/ace-homepage[1]/div[1]/div[1]/div[1]/ace-qtt-toggle[1]/div[1]/div[2]/div[1]/ace-qtt[1]/form[1]/div[1]/ace-qtt-station-pickers[1]/div[1]/div[1]/div[1]/div[2]/ace-station-picker[1]/div[1]/div[1]/div[1]");
-  }
-  get adult()
-  {
-    return $("//*[@id='qtt']/div/div/div[3]/div/div[1]/ace-passenger-picker")
   }
 
   get btnSubmit() {
@@ -31,34 +22,24 @@ class QTT {
   get searchAndByButton() {
     return $('#search-qtt')
   }
-  get selectTickets()    //mixing deck
+  get adultsSelection()
   {
-    return $('.booking-steps-label')
+    return $("//*[@id='qtt']/div/div/div[3]/div/div[1]/ace-passenger-picker")
   }
-  get continueButton()   //mixing deck
-  {
-    return $('.btn.btn-commercial.btn-primary')
-  }
-  get deiveryAndExtras()    // deliveryExtras
-  {
-    return $('.page-title')
-  }
-  get contBtn()          // deliveryExtras
-  {
-    return $('.btn.btn-commercial.btn-primary')
-  }
+  get addButton()
+{  
+return $("//*[@id='qtt']/div/div/div[3]/div/div[1]/ace-passenger-picker/div/div[2]/div[3]/div[1]/ace-numerical-stepper[1]/div/div/div[3]")
+}
+get addKids()
+{
+return $("//*[@id='qtt']/div/div/div[3]/div/div[1]/ace-passenger-picker/div/div[2]/div[3]/div[1]/ace-numerical-stepper[2]/div/div/div[3]/ace-button")
+}
+get doneButton()
+{
+return $ ("//*[@id='submit-passengers-with-railcard']/button")
+}
 
-  get reviewAndpayPage()   //reviewPayPage
-  {
-    return $('.page-title')
-  }
-  get payNowBtn() {
-    return $('.btn.btn-commercial.btn-primary')
-  }
-  /**
-   * a method to encapsule automation code to interact with the page
-   * e.g. to login using username and password
-   */
+
   async clickAndSelectFromStation() {
     await this.fromStation.click();
     await this.searchInputField.setValue("Banbury");
@@ -76,20 +57,25 @@ class QTT {
     await this.searchAndByButton.click();
     await browser.pause(3000)
   }
-  async continue()     // mixing deck
+  async adultsAndkids()
   {
-    await this.continueButton.click();
+    await this.adultsSelection.click();
     await browser.pause(3000)
   }
-  async continuebtn2()   // deliveryExtras
+  async addPlusButton()
   {
-    await this.contBtn.click();
+    await this.addButton.click();
+    await browser.pause(3000)
+  }
+  async addPlusChildren()
+  {
+    await this.addKids.click();
+    await browser.pause(3000)
+  }
+  async doneBtn() {
+    await this.doneButton.click();
     await browser.pause(3000)
   }
 
-  async payNow() {
-    await this.payNowBtn.click();
-    await browser.pause(3000)
-  }
 }
 module.exports = new QTT();
