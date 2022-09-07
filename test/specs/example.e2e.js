@@ -6,6 +6,9 @@ const mixingdeck = require('./../pageobjects/mixingdeck.page');
 const deiveryAndExtras = require('./../pageobjects/deliveryExtra.page');
 const reviewPayPage = require('./../pageobjects/reviewPay.page');
 const {email,password} = require('./../data/credentails');
+const myAccount = require('../pageobjects/myAccount');
+const travelPreference = require('../pageobjects/travelPreference');
+const { travelPreferenceFun } = require('../pageobjects/travelPreference');
 
 
 
@@ -30,52 +33,125 @@ describe('My Login application', () => {
         await expect(text).toBeExisting()
         await expect(text).toHaveTextContaining('You have no active bookings.')
     })
-    it('Book tickets onClick ', async () => {
-        let text = await $("a[data-elid='book-tickets']");
+
+    it('Should Click on Personal Details - YOUR PROFILE', async () => {       // BOOK TICkEtS -- personal details.
+        //let text = await $("a[data-elid='book-tickets']");
         //await expect(internet.bookTickets).toBeExisting().click();
-        await expect(text).toBeExisting()
-        await expect(text).toHaveTextContaining('Book tickets')
-        await $("a[data-elid='book-tickets']").click();
+        // working below
+        // await expect(text).toBeExisting()
+        // await expect(text).toHaveTextContaining('Book tickets')
+        // await $("a[data-elid='book-tickets']").click();
+        await myAccount.personalDeatailsfun();
+        //await myAccount.editBtnFun();
+        //await myAccount.firstNameFun();
+    //     await myAccount.surtNameFun();
+    //     await myAccount.dateFun();
+    //     await myAccount.monthFun();
+    //    await myAccount.yearFun();
+    //     await myAccount.addAnotherNumFun();
+    //    await myAccount.enterAnotherNumFun();
+    //    await myAccount.saveChangesBtnFun();
     })
-    it('Buy Tickets Page Heding', async () => {
+    xit('Should Click on Personal Details - YOUR Address', async () => {
+       await myAccount.addAddressFun();
+       await myAccount.addressNameFun();
+       await myAccount.countryFun();
+       await myAccount.countyFun();
+       await myAccount.cityFun();
+       await myAccount.postCodeFun();
+       await myAccount.addressline1Fun();
+       await myAccount.addressline2Fun();
+      //await internet.checkBoxTickFun();
+       await myAccount.saveBtnFun();
+
+
+    })
+    xit('Should remove the address', async () => {
+        await myAccount.removeBtnFun();
+    })
+    xit('Should click on confirmation button', async () => {
+        await myAccount.con();
+    })
+    it('Should click on Travel Preference', async () => {
+        await travelPreference.travelPreferenceFun();
+    })
+    it('Should click on Seat Pref edit button', async () => {
+        await travelPreference.seatPrefEditFun();
+        await travelPreference.seatDirectionFun();
+    })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    xit('Buy Tickets Page Heding', async () => {
         let text = await $("//h1[contains(text(),'Buy tickets to anywhere in Great Britain')]");
         await expect(text).toBeExisting()
     })
 
-    it('SELECT Origin station', async () => {
+    xit('SELECT Origin station', async () => {
         await QTT.clickAndSelectFromStation();
     })
 
-    it('SELECT Destination station', async () => {
+    xit('SELECT Destination station', async () => {
         await QTT.clickAndSelecttToStation();
     })
-    it('should click on adults and kids drop down menu', async () => {
+    xit('Should select the date of going towards destination', async () => {
+        await QTT.clickOutBoundToday();
+    })
+    xit('Should select the date Return Ticket', async () => {
+        await QTT.clickReturnDate();
+    })
+
+
+    xit('should click on adults and kids drop down menu', async () => {
         await QTT.adultsAndkids();
     })
-    it('should click on adults and kids drop down menu', async () => {
+    xit('should click on adults and kids drop down menu', async () => {
         await QTT.addPlusButton();
     })
-    it('should click on adults and kids drop down menu', async () => {
+    xit('should click on adults and kids drop down menu', async () => {
         await QTT.addPlusChildren();
     })
-    it('should click Done button', async () => {
+    xt('should click Done button', async () => {
         await QTT.doneBtn();
     })
 
-    it('should click search and buy button', async () => {
+    xit('should click search and buy button', async () => {
         await QTT.clickSearchAndBuy();
     })
 
-    it('Should g to mixing-deck page ', async () => {    // mixing deck
+    xit('Should g to mixing-deck page ', async () => {    // mixing deck
 
         let text = await $(".booking-steps-label");
         await expect(text).toBeExisting();
 
     })
-    it('Should go to mixing deck page', async () => {   // mixing deck
+
+    // previous skipped
+    xit('Should go to mixing deck page', async () => {   // mixing deck
         await mixingdeck.continue();
     })
-    it('Should go to DilveryAndExtrasPage', async () =>   //DeliveryExtras
+    xit('Should go to DilveryAndExtrasPage', async () =>   //DeliveryExtras
     {
         let text = await $('.page-title');
         await expect(text).toBeExisting();
@@ -90,16 +166,16 @@ describe('My Login application', () => {
     //     await deiveryAndExtras.tvmMachine();
     // })
 
-    it('should go to DilveryAndExtrasPage', async () =>      //DeliveryExtras
+    xit('should go to DilveryAndExtrasPage', async () =>      //DeliveryExtras
     {
         await deiveryAndExtras.continuebtn2();
     })
-    it('should go to review and Pay Page', async () =>      //reviewPayPage
+    xit('should go to review and Pay Page', async () =>      //reviewPayPage
     {
         let text = await $('.page-title');
         await expect(text).toBeExisting();
     })
-    it('should go to pay now page', async () =>      // pay now page
+    xit('should go to pay now page', async () =>      // pay now page
     {
         await reviewPayPage.payNow();
     })

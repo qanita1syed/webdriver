@@ -38,6 +38,24 @@ get doneButton()
 {
 return $ ("//*[@id='submit-passengers-with-railcard']/button")
 }
+//==================================================================
+get outBoundToday()
+{
+return $("//body/ace-root[@id='ace-root']/div[1]/main[1]/div[1]/ace-homepage[1]/div[1]/div[1]/div[1]/ace-qtt-toggle[1]/div[1]/div[2]/div[1]/ace-qtt[1]/form[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]")
+}
+
+get pickDate()
+{
+return $("//body/ace-root[@id='ace-root']/div[1]/main[1]/div[1]/ace-homepage[1]/div[1]/div[1]/div[1]/ace-qtt-toggle[1]/div[1]/div[2]/div[1]/ace-qtt[1]/form[1]/div[1]/div[1]/div[1]/div[1]/ace-calendar[1]/div[2]/div[1]/div[2]/ace-calendar-card[1]/div[1]/div[4]/button[1]")
+}
+get returnDate()
+{
+return $("//body/ace-root[@id='ace-root']/div[1]/main[1]/div[1]/ace-homepage[1]/div[1]/div[1]/div[1]/ace-qtt-toggle[1]/div[1]/div[2]/div[1]/ace-qtt[1]/form[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]")
+}
+get returnTicketDate()
+{
+return $("//body/ace-root[@id='ace-root']/div[1]/main[1]/div[1]/ace-homepage[1]/div[1]/div[1]/div[1]/ace-qtt-toggle[1]/div[1]/div[2]/div[1]/ace-qtt[1]/form[1]/div[1]/div[1]/div[1]/div[1]/ace-calendar[1]/div[2]/div[1]/div[3]/ace-calendar-card[2]/div[1]/div[3]/button[7]/span[1]")
+}
 
 
   async clickAndSelectFromStation() {
@@ -53,6 +71,22 @@ return $ ("//*[@id='submit-passengers-with-railcard']/button")
     await browser.pause(3000)
 
   }
+//------------------------------------------------------------------
+async clickOutBoundToday()
+{
+  await this.outBoundToday.click();
+  await this.pickDate.click();
+  //browser.keys("\ue007");
+  await browser.pause(3000)
+}
+async clickReturnDate()
+{
+  await this.returnDate.click();
+  await this.returnTicketDate.click();
+  //browser.keys("\ue007");
+  await browser.pause(3000)
+}
+
   async clickSearchAndBuy() {
     await this.searchAndByButton.click();
     await browser.pause(3000)
