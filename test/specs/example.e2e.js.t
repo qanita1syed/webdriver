@@ -5,7 +5,7 @@ const QTT = require('./../pageobjects/qtt.page');
 const mixingdeck = require('./../pageobjects/mixingdeck.page');
 const deiveryAndExtras = require('./../pageobjects/deliveryExtra.page');
 const reviewPayPage = require('./../pageobjects/reviewPay.page');
-const {email,password} = require('./../data/credentails');
+const { email, password } = require('./../data/credentails');
 const myAccount = require('../pageobjects/myAccount');
 const travelPreference = require('../pageobjects/travelPreference');
 const { travelPreferenceFun } = require('../pageobjects/travelPreference');
@@ -17,7 +17,7 @@ describe('My Login application', () => {
     it('should login with valid credentials', async () => {
         await LoginPage.open();
 
-       //await LoginPage.login('qanita.bokhari@wizardscrew.com', 'Keetusyed1@');
+        //await LoginPage.login('qanita.bokhari@wizardscrew.com', 'Keetusyed1@');
         await LoginPage.login(email, password);
         await expect(SecurePage.flashAlert).toBeExisting();
         await expect(SecurePage.flashAlert).toHaveTextContaining(
@@ -42,34 +42,34 @@ describe('My Login application', () => {
         // await expect(text).toHaveTextContaining('Book tickets')
         // await $("a[data-elid='book-tickets']").click();
         await myAccount.personalDeatailsfun();
-        //await myAccount.editBtnFun();
-        //await myAccount.firstNameFun();
-    //     await myAccount.surtNameFun();
-    //     await myAccount.dateFun();
-    //     await myAccount.monthFun();
-    //    await myAccount.yearFun();
-    //     await myAccount.addAnotherNumFun();
-    //    await myAccount.enterAnotherNumFun();
-    //    await myAccount.saveChangesBtnFun();
+        await myAccount.editBtnFun();
+        await myAccount.firstNameFun();
+        await myAccount.surtNameFun();
+        await myAccount.dateFun();
+        await myAccount.monthFun();
+        await myAccount.yearFun();
+        await myAccount.addAnotherNumFun();
+        await myAccount.enterAnotherNumFun();
+        await myAccount.saveChangesBtnFun();
     })
-    xit('Should Click on Personal Details - YOUR Address', async () => {
-       await myAccount.addAddressFun();
-       await myAccount.addressNameFun();
-       await myAccount.countryFun();
-       await myAccount.countyFun();
-       await myAccount.cityFun();
-       await myAccount.postCodeFun();
-       await myAccount.addressline1Fun();
-       await myAccount.addressline2Fun();
-      //await internet.checkBoxTickFun();
-       await myAccount.saveBtnFun();
+    it('Should Click on Personal Details - YOUR Address', async () => {
+        await myAccount.addAddressFun();
+        await myAccount.addressNameFun();
+        await myAccount.countryFun();
+        await myAccount.countyFun();
+        await myAccount.cityFun();
+        await myAccount.postCodeFun();
+        await myAccount.addressline1Fun();
+        await myAccount.addressline2Fun();
+        //await internet.checkBoxTickFun();
+        await myAccount.saveBtnFun();
 
 
     })
-    xit('Should remove the address', async () => {
+    it('Should remove the address', async () => {
         await myAccount.removeBtnFun();
     })
-    xit('Should click on confirmation button', async () => {
+    it('Should click on confirmation button', async () => {
         await myAccount.con();
     })
     it('Should click on Travel Preference', async () => {
@@ -78,7 +78,26 @@ describe('My Login application', () => {
     it('Should click on Seat Pref edit button', async () => {
         await travelPreference.seatPrefEditFun();
         await travelPreference.seatDirectionFun();
+        await travelPreference.seatPositionFun();
+        await travelPreference.quietCoachFun();
+        await travelPreference.nearToFun();
+        await travelPreference.saveChangesFun();
     })
+    it('Should click on Add Preference edit button', async () => {
+       // await travelPreference.addPreferencesFun();
+        await travelPreference.royalMailFun();
+        await travelPreference.saveFun();
+
+    })
+    it('Should click on Travel Assistance Edit', async () => {
+        await travelPreference.travelAssistanceEditFun();
+        await travelPreference.radioFun();
+        await travelPreference.enterPhNumFun();
+        await travelPreference.additionalInfoFun();
+        await travelPreference.saveLastFun();
+
+    })
+
 
 
 
