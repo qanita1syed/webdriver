@@ -1,7 +1,6 @@
 const travelPreference = require('../pageobjects/travelPreference');
 const LoginPage = require('../pageobjects/login.page');
 const {email, password}= require('../data/credentails')
-//const { travelPreferenceFun } = require('../pageobjects/travelPreference');
 
 describe('Travel Preferences page', () => {
 
@@ -19,7 +18,7 @@ describe('Travel Preferences page', () => {
         await travelPreference.saveChangesFun();
     })
     it('Should click on Add Preference edit button', async () => {
-       // await travelPreference.addPreferencesFun();
+        await travelPreference.addPreferencesFun();
         await travelPreference.royalMailFun();
         await travelPreference.saveFun();
 

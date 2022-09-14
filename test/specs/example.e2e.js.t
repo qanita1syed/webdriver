@@ -84,7 +84,7 @@ describe('My Login application', () => {
         await travelPreference.saveChangesFun();
     })
     it('Should click on Add Preference edit button', async () => {
-       // await travelPreference.addPreferencesFun();
+        await travelPreference.addPreferencesFun();
         await travelPreference.royalMailFun();
         await travelPreference.saveFun();
 
