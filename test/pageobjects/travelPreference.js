@@ -1,4 +1,4 @@
-const { default: isSelected } = require("webdriverio/build/commands/element/isSelected")
+//const { default: isSelected } = require("webdriverio/build/commands/element/isSelected")
 
 class travelPreference {
     get travelPreference() {
@@ -21,7 +21,7 @@ class travelPreference {
         return $("//body/ace-root[@id='ace-root']/div[1]/main[1]/div[1]/ace-account-navbar[1]/div[1]/div[1]/ace-travel-preferences[1]/div[2]/ace-seat-preference-form[1]/div[1]/div[2]/form[1]/div[2]/ace-checkbox[3]/label[1]/div[1]")
     }
     // 
-    
+
     get nearToToilet(){
         return $('//*[@id="ace-root"]/div/main/div/ace-account-navbar/div/div/ace-travel-preferences/div[2]/ace-seat-preference-form/div/div[2]/form/div[2]/ace-checkbox[1]/label/span')
     }
@@ -142,10 +142,10 @@ class travelPreference {
         await browser.pause(5000)
     }
 
-
+//
   
     async nearToFun() {
-        // Generating Random Value
+
         const randOption = Math.floor(Math.random() * 4) + 1;
 
         // Deselecting the Selected Options
@@ -195,7 +195,7 @@ class travelPreference {
         await browser.pause(3000)
     }
   
-    async royalMailFun() {
+    async royalMailFun() { // deliveryMethods
 
         const res = await this.eTicket.isSelected()
 

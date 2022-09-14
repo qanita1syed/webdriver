@@ -1,5 +1,6 @@
 const LoginPage = require('./../pageobjects/login.page');
 const SecurePage = require('./../pageobjects/secure.page');
+
 const internet = require('./../pageobjects/internet');
 const QTT = require('./../pageobjects/qtt.page');
 const mixingdeck = require('./../pageobjects/mixingdeck.page');
