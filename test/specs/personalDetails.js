@@ -2,7 +2,16 @@ const LoginPage = require('../pageobjects/login.page');
 const {email, password}= require('../data/credentails')
 const myAccount = require('../pageobjects/myAccount');
 
+
+describe(' personal details ', () => {
+
+     beforeAll(() => {
+        LoginPage.open();
+       })
+    
+
 it('Should Click on Personal Details - YOUR PROFILE', async () => {       // personal details.
+    
     await LoginPage.open();
     await LoginPage.login(email, password);
     await myAccount.personalDeatailsfun();
@@ -34,3 +43,9 @@ it('Should remove the address', async () => {
 it('Should click on confirmation button', async () => {
     await myAccount.con();
 })
+// afterAll(() => {
+//     browser.close();
+//     //window.close();
+//    })
+
+});

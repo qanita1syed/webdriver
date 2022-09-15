@@ -7,6 +7,11 @@ const QTT = require('./../pageobjects/qtt.page');
 
 describe('Select the Tickets', () => {
 
+    beforeAll(() => {
+        LoginPage.open();
+       })
+    
+
     it('should click on Book Tickets', async () => {
         await LoginPage.open();
        await LoginPage.login(email, password);
@@ -43,5 +48,10 @@ describe('Select the Tickets', () => {
     it('should click search and buy button', async () => {
         await QTT.clickSearchAndBuy();
     })
+
+    // afterAll(() => {
+    //     browser.close();
+    //     //window.close();
+    //    })
 
 });

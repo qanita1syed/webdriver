@@ -5,8 +5,10 @@ const travelPreference = require('../pageobjects/travelPreference');
 
 describe('Travel Preferences page', () => {
 
-    // afterall(function () {
-    //     console.log("-----After All Test Suit-----");     });
+    beforeAll(() => {
+        LoginPage.open();
+       })
+    
 
     it('should click on travell prefrences', async () => {
         await LoginPage.open();
@@ -35,4 +37,10 @@ describe('Travel Preferences page', () => {
         await travelPreference.saveLastFun();
 
     })
+
+    // afterAll(() => {
+    //     browser.close();
+    //     //window.close();
+    //    })
+    
 });

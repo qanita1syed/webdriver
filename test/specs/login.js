@@ -1,11 +1,16 @@
 const LoginPage = require('./../pageobjects/login.page');
 const { email, password } = require('./../data/credentails');
 const SecurePage = require('./../pageobjects/secure.page');
+const loginPage = require('./../pageobjects/login.page');
 
 describe('My Login application', () => {
    
-    // beforeall(function () {
-    // console.log("-----Before All Test Suit-----");     });
+   beforeAll( () => {
+    LoginPage.open();
+   })
+
+//beforeAll (function() {})
+
 
     it('should login with valid credentials', async () => {
         await LoginPage.open();
@@ -16,4 +21,8 @@ describe('My Login application', () => {
         await expect(SecurePage.flashAlert).toHaveTextContaining(
             'Login successful');
     })
+    // afterAll(() => {
+    //     browser.close();
+    //     //window.close();
+    //    })
 });
